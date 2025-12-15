@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuente de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+    <!-- Íconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Mi Página Web</title>
+
+    <style>
+  /* =========================
+     1) BASE / RESET
+  ========================== */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #D4D0D6;
+  }
+
+  /* Tipografía para títulos */
+  h1, h2 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Tamaños base (globales) */
+  h1 {
+    font-size: 4.5rem;
+    font-weight: normal;
+  }
+
+  h2, p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  /* =========================
+     2) HEADER / NAV
+  ========================== */
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #F2F1ED;
+    color: black;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    flex-wrap: wrap;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .hide-header {
+    transform: translateY(-100%);
+  }
+
+  .logo {
+    font-size: 25px;
+    font-weight: normal;
+    color: black;
+    padding: 5px 10px;
+    font-family: proxima nova; /* (lo mantengo tal cual lo tenías) */
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    margin-right: 20px;
+    align-items: center;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #C5BC8E;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .nav-link:hover {
+    background-color: #F2F1ED;
+    color: #218838;
+  }
+
+  .nav-button {
+    font-size: 15px;
+    padding: 10px 40px;
+    background-color: #C5BC8E;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .nav-button:hover {
+    background-color: #F2F1ED;
+    color: #218838;
+  }
+
+  /* Dropdown idiomas */
+  .dropdown {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #C5BC8E;
+    display: inline-block;
+    font-size: 15px;
+  }
+
+  .dropdown:hover {
+    background-color: #F2F1ED;
+    color: #218838;
+  }
+
+  .dropdown i {
+    margin-left: 6px;
+  }
+
+  .idioma-dropdown {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: #F2F1ED;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1001;
+    overflow: hidden;
+    min-width: 120px;
+  }
+
+  .idioma-dropdown li {
+    padding: 10px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .idioma-dropdown li:hover {
+    background-color: #C5BC8E;
+  }
+
+  /* =========================
+     3) SCROLL / SECCIONES
+  ========================== */
+/* Ocultar barra de scroll (mantiene el scroll activo) */
+.scroll-container {
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE / Edge antiguo */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Edge */
+}
+
+.scroll-item {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .second-section {
+    background-color: #faf3e0;
+  }
+
+  /* Layout general de secciones (1 y 3) */
+  .section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    padding: 3rem 2rem;
+    gap: 3rem;
+  }
+
+  .text-content {
+    flex: 1;
+    margin-right: 2rem;
+  }
+
+  .image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: 2rem;
+  }
+
+  .image-content img {
+    width: 510px;
+    height: 510px;
+    object-fit: cover;
+    border-radius: 60px;
+  }
+
+  /* =========================
+     4) SECCIÓN 2 (ENFOQUE)
+  ========================== */
+  .enfoque-section {
+    display: flex;
+    height: 100vh; /* lo mantengo porque estaba en tu original */
+    padding: 0;
+    margin: 0;
+  }
+
+  .enfoque-img {
+    width: 50vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .enfoque-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+  }
+
+  /* (Unificado) Text-content dentro de sección enfoque */
+  .enfoque-section .text-content {
+    width: 50vw;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Tipografía y tamaños específicos dentro de sección enfoque */
+  /* Tipografía y tamaños específicos dentro de sección enfoque */
+.enfoque-section h1 {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+.enfoque-section h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  color: #3a3a3a;
+}
+
+
+.enfoque-section p {
+  font-size: 1.25rem;
+  line-height: 1.85;  /*mas aire entre lineas*/
+  margin-bottom: 1.5rem;
+  max-width: 70%;  /*ancho de la lectura*/
+  color:  #1f1f1f;
+  font-weight: 400;
+}
+
+
+  /* =========================
+     5) BOTÓN
+  ========================== */
+  .pink-button {
+    background-color: #ff8fa3;
+    border: 1px solid #333;
+    color: black;
+    padding: 15px 60px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .pink-button:hover {
+    background-color: #ff6f8e;
+  }
+
+  /* =========================
+     6) FOOTER
+  ========================== */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #ff8fa3;
+  }
+
+  /* =========================
+     7) RESPONSIVE
+  ========================== */
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .text-content, .image-content {
+      margin: 1rem 0;
+    }
+
+    .image-content img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .nav-link {
+      margin: 10px 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    .nav-link, .nav-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+
+    .scroll-item {
+      padding: 2rem 1rem;
+    }
+
+    .enfoque-section {
+      flex-direction: column;
+    }
+
+    .enfoque-img, .enfoque-img img {
+      width: 100%;
+      height: auto;
+    }
+
+    .enfoque-section .text-content {
+      width: 100%;
+      padding: 2rem;
+    }
+  }
+</style>
+
+</head>
+<body>
+                                   <!-- ====== ENCABEZADO CON MENÚ ====== -->
+   
+    <header>
+
+  <div class="logo"><strong>Paz</strong></div>
+
+  <nav class="nav-menu">
+   <a href="#projects" class="nav-link" id="menu-proyectos">Projects</a>
+    <div class="nav-link dropdown">
+  Languages <i class="fas fa-caret-down"></i>
+  <ul class="idioma-dropdown" id="idioma-menu">
+    <li onclick="cambiarIdioma('en')">English</li>
+    <li onclick="cambiarIdioma('es')">Español</li>
+  </ul>
+</div>
+ <a href="#contact" class="nav-link" id="menu-contacto">Contact</a>
+  </nav>
+</header>
+
+    <!-- ====== CONTENIDO PRINCIPAL ====== -->
+    <main class="scroll-container">
+        <!-- SECCIÓN 1 -->
+       <section class="scroll-item">
+
+            <div class="section">
+                <div class="text-content">
+                    <h1 id="intro-titulo">Hello, I'm Paz.</h1>
+<p id="intro-parrafo">I'm learning web development and I love creating websites that are accessible, clear and meaningful.</p>
+<a href="projects.html" class="pink-button" id="intro-boton">
+  Discover more
+</a>
+
+                </div>
+                <div class="image-content">
+                    <img src="https://i.postimg.cc/SQ34ff2x/dawid-liberadzki-v-PFb-VB7-DPZI-unsplash.jpg" alt="Escritorio minimalista con laptop">
+                </div>
+            </div>
+        </section>
+
+                                                 <!-- SECCIÓN 2 -->
+        
+       <section class="scroll-item second-section" id="projects">
+    <div class="enfoque-section">
+        <div class="enfoque-img">
+            <img src="https://i.postimg.cc/15RDTkV3/marina-podrez-Qw-Op3y-IPm38-unsplash.jpg" alt="Mesa con cuadernos y café">
+        </div>
+        <div class="text-content">
+            <h1 id="enfoque-titulo">My Approach</h1>
+
+<h2 id="enfoque-sub1"><strong>Design for Everyone</strong></h2>
+<p id="enfoque-texto1">I enjoy creating clean, well-structured websites designed for everyone. I care deeply about the details, making sure navigation feels clear, intuitive, and barrier-free.</p>
+
+<h2 id="enfoque-sub2"><strong>Learning by Doing</strong></h2>
+<p id="enfoque-texto2">I get involved in every project with curiosity and dedication. I love exploring ideas, finding practical solutions, and creating websites with a clear message that truly connect with people.</p>
+
+
+
+        </div>
+    </div>
+</section>
+
+                                                 <!-- SECCIÓN 3 -->
+        <section class="scroll-item" id="contact">
+            <div class="section">
+                <div class="text-content">
+                   <h1 id="contacto-titulo">Contact Me</h1>
+<p id="contacto-texto">Interested in working together? Feel free to reach out.
+</p>
+ <a href="pazcastillorocha@gmail.com" class="pink-button" id="contacto-boton">
+  Email me
+</a>
+
+
+                </div>
+                <div class="image-content">
+                    <img src="https://i.postimg.cc/xTqwysz9/planta-en-maceta-cerca-de-telefonos-inteligentes-y-papeleria.jpg" alt="Planta junto a material de oficina">
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====== Foot ====== -->
+    <footer>
+  <p id="pie-pagina">&copy; 2025 My Website</p>
+  <div class="social-icons">
+    <a href="https://github.com/tu_usuario" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/tu_usuario" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="ruta-a-tu-cv.pdf" target="_blank" aria-label="Currículum">
+      <i class="fas fa-file-alt"></i>
+    </a>
+  </div>
+</footer>
+
+    <!-- ====== SCRIPT PARA OCULTAR HEADER AL DESPLAZAR HACIA ABAJO ====== -->
+    <script>
+  let lastScroll = 0;
+
+  const header = document.querySelector("header");
+  const scroller = document.querySelector(".scroll-container"); // el que realmente hace scroll
+
+  scroller.addEventListener("scroll", () => {
+    const currentScroll = scroller.scrollTop; // posición del scroll dentro del contenedor
+
+    if (currentScroll > lastScroll) {
+      header.classList.add("hide-header");   // bajando: ocultar
+    } else {
+      header.classList.remove("hide-header"); // subiendo: mostrar
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
+
+   <script>
+const textos = {
+  en: {
+    /* ===== MENÚ (Ingles)===== */
+    "menu-proyectos": "Projects",
+    "menu-contacto": "Contact",
+
+    /* ===== SECCIÓN 1 (Ingles)===== */
+    "intro-titulo": "Hello, I'm Paz.",
+    "intro-parrafo": "I'm learning web development and I love creating websites that are accessible, clear and meaningful.",
+    "intro-boton": "Discover more",
+
+    /* ===== SECCIÓN 2 (Ingles)===== */
+    "enfoque-titulo": "My Approach",
+    "enfoque-sub1": "<strong>Design for Everyone</strong>",
+    "enfoque-texto1": "I enjoy creating clean, well-structured websites designed for everyone. I care deeply about the details, making sure navigation feels clear, intuitive, and barrier-free.",
+    "enfoque-sub2": "<strong>Learning by Doing</strong>",
+    "enfoque-texto2": "I get involved in every project with curiosity and dedication. I love exploring ideas, finding practical solutions, and creating websites with a clear message that truly connect with people.",
+
+    /* ===== SECCIÓN 3 (Ingles)===== */
+    "contacto-titulo": "Contact",
+    "contacto-texto": "Interested in working together? Feel free to reach out.",
+    "contacto-boton": "Email me",
+
+
+    /* ===== FOOTER (Ingles)===== */
+    "pie-pagina": "&copy; 2025 My Website"
+  },
+
+  es: {
+    /* ===== MENÚ (español)===== */
+    "menu-proyectos": "Proyectos",
+    "menu-contacto": "Contacto",
+
+    /* ===== SECCIÓN 1 (español)===== */
+    "intro-titulo": "Hola, soy Paz.",
+    "intro-parrafo": "Estoy aprendiendo desarrollo web y me encanta crear sitios accesibles, claros y con sentido.",
+    "intro-boton": "Descubrir más",
+
+    /* ===== SECCIÓN 2 (español)===== */
+    "enfoque-titulo": "Mi Enfoque",
+    "enfoque-sub1": "<strong>Diseño para Todos</strong>",
+    "enfoque-texto1": "Disfruto creando páginas limpias y bien estructuradas, pensadas para todas las personas. Cuido los detalles para que la navegación sea clara, intuitiva y sin barreras.",
+    "enfoque-sub2": "<strong>Aprender Haciendo</strong>",
+    "enfoque-texto2": "Me implico en cada proyecto con curiosidad y dedicación. Me encanta explorar ideas, encontrar soluciones prácticas y crear webs con un mensaje claro que conecten de verdad con su público.",
+
+    /* ===== SECCIÓN 3 (español)===== */
+    "contacto-titulo": "Contacto",
+    "contacto-texto": "¿Te apetece colaborar? Escríbeme cuando quieras.",
+    "contacto-boton": "Escríbeme",
+
+
+    /* ===== FOOTER (español)===== */
+    "pie-pagina": "&copy; 2025 Mi Sitio Web"
+  }
+};
+
+function cambiarIdioma(idioma) {
+  for (const id in textos[idioma]) {
+    const elemento = document.getElementById(id);
+    if (elemento) {
+      elemento.innerHTML = textos[idioma][id];
+    }
+  }
+}
+
+/* ===== DROPDOWN IDIOMAS ===== */
+document.querySelector('.dropdown').addEventListener('click', function (e) {
+  e.stopPropagation();
+  const menu = document.getElementById('idioma-menu');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+});
+
+document.addEventListener('click', function () {
+  const menu = document.getElementById('idioma-menu');
+  if (menu) menu.style.display = 'none';
+});
+</script>
+ 
+</body>
+</html>
