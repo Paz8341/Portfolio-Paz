@@ -12,9 +12,7 @@
     <title>Mi Página Web</title>
 
     <style>
-  /* =========================
-     1) BASE / RESET
-  ========================== */
+                               /* ====1 BASE / RESET==== */
   html {
     scroll-behavior: smooth;
   }
@@ -42,10 +40,8 @@
     font-weight: 300;
     line-height: 1.4;
   }
-
-  /* =========================
-     2) HEADER / NAV
-  ========================== */
+ 
+                            /* =====2 HEADER / NAV ==== */
   header {
     position: fixed;
     top: 0;
@@ -70,7 +66,7 @@
     font-weight: normal;
     color: black;
     padding: 5px 10px;
-    font-family: proxima nova; /* (lo mantengo tal cual lo tenías) */
+    font-family: proxima nova; /* fuente de la pagina */
   }
 
   .nav-menu {
@@ -160,10 +156,8 @@
     background-color: #C5BC8E;
   }
 
-  /* =========================
-     3) SCROLL / SECCIONES
-  ========================== */
-/* Ocultar barra de scroll (mantiene el scroll activo) */
+                         /* =======3 SCROLL / SECCIONES====== */
+                         /* Ocultar barra de scroll (mantiene el scroll activo) */
 .scroll-container {
   scrollbar-width: none;      /* Firefox */
   -ms-overflow-style: none;   /* IE / Edge antiguo */
@@ -215,9 +209,7 @@
     border-radius: 60px;
   }
 
-  /* =========================
-     4) SECCIÓN 2 (ENFOQUE)
-  ========================== */
+                            /* =======4. SECCIÓN 2 (ENFOQUE)====== */
   .enfoque-section {
     display: flex;
     height: 100vh; /* lo mantengo porque estaba en tu original */
@@ -251,7 +243,6 @@
   }
 
   /* Tipografía y tamaños específicos dentro de sección enfoque */
-  /* Tipografía y tamaños específicos dentro de sección enfoque */
 .enfoque-section h1 {
   font-size: 3.2rem;
   margin-bottom: 2rem;
@@ -276,9 +267,7 @@
 }
 
 
-  /* =========================
-     5) BOTÓN
-  ========================== */
+                                     /* ======5. BOTÓN ======== */
   .pink-button {
     background-color: #ff8fa3;
     border: 1px solid #333;
@@ -297,9 +286,7 @@
     background-color: #ff6f8e;
   }
 
-  /* =========================
-     6) FOOTER
-  ========================== */
+                         /* =====  6) FOOTER  ========= */
   footer {
     background-color: #333;
     color: white;
@@ -325,9 +312,7 @@
     color: #ff8fa3;
   }
 
-  /* =========================
-     7) RESPONSIVE
-  ========================== */
+                       /* ===== 7) RESPONSIVE ============= */
   @media (max-width: 768px) {
     .section {
       flex-direction: column;
@@ -408,7 +393,7 @@
   </nav>
 </header>
 
-    <!-- ====== CONTENIDO PRINCIPAL ====== -->
+                              <!-- ====== CONTENIDO PRINCIPAL ====== -->
     <main class="scroll-container">
         <!-- SECCIÓN 1 -->
        <section class="scroll-item">
@@ -417,7 +402,7 @@
                 <div class="text-content">
                     <h1 id="intro-titulo">Hello, I'm Paz.</h1>
 <p id="intro-parrafo">I'm learning web development and I love creating websites that are accessible, clear and meaningful.</p>
-<a href="projects.html" class="pink-button" id="intro-boton">
+<a href="projects-en.html" class="pink-button" id="intro-boton">
   Discover more
 </a>
 
@@ -457,10 +442,9 @@
                    <h1 id="contacto-titulo">Contact Me</h1>
 <p id="contacto-texto">Interested in working together? Feel free to reach out.
 </p>
- <a href="pazcastillorocha@gmail.com" class="pink-button" id="contacto-boton">
-  Email me
+ <a href="cv-en.html" class="pink-button" id="contacto-boton"> 
+  View CV & Contact
 </a>
-
 
                 </div>
                 <div class="image-content">
@@ -471,7 +455,7 @@
         </section>
     </main>
 
-    <!-- ====== Foot ====== -->
+                                       <!-- ====== Foot ====== -->
     <footer>
   <p id="pie-pagina">&copy; 2025 My Website</p>
   <div class="social-icons">
@@ -487,7 +471,7 @@
   </div>
 </footer>
 
-    <!-- ====== SCRIPT PARA OCULTAR HEADER AL DESPLAZAR HACIA ABAJO ====== -->
+                  <!-- ====== SCRIPT PARA OCULTAR HEADER AL DESPLAZAR HACIA ABAJO ====== -->
     <script>
   let lastScroll = 0;
 
@@ -565,13 +549,33 @@ const textos = {
 };
 
 function cambiarIdioma(idioma) {
+
+  // 1) Cambio los textos visibles según idioma
   for (const id in textos[idioma]) {
     const elemento = document.getElementById(id);
     if (elemento) {
       elemento.innerHTML = textos[idioma][id];
     }
   }
+
+  // 2) Cambio enlaces según idioma (CV y Projects)
+  const btnCV = document.getElementById("contacto-boton");
+  if (btnCV) {
+    btnCV.href = (idioma === "es") ? "cv-es.html" : "cv-en.html";
+  }
+
+  const btnProjects = document.getElementById("intro-boton");
+  if (btnProjects) {
+    btnProjects.href = (idioma === "es") ? "projects-es.html" : "projects-en.html";
+  }
+
+  // 3) Guardo el idioma elegido para próximas visitas
+  localStorage.setItem("lang", idioma);
+
+  // 4) Ajusto el atributo lang del HTML
+  document.documentElement.lang = idioma;
 }
+
 
 /* ===== DROPDOWN IDIOMAS ===== */
 document.querySelector('.dropdown').addEventListener('click', function (e) {
@@ -584,6 +588,12 @@ document.addEventListener('click', function () {
   const menu = document.getElementById('idioma-menu');
   if (menu) menu.style.display = 'none';
 });
+// Al cargar la página: aplico el idioma guardado (si existe)
+// Si no hay ninguno, uso inglés por defecto
+const idiomaGuardado = localStorage.getItem("lang") || "en";
+cambiarIdioma(idiomaGuardado);
+
+
 </script>
  
 </body>
