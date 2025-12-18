@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fuente de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-
     <!-- Íconos Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
     <title>Mi Página Web</title>
 
     <style>
@@ -314,6 +314,10 @@
 
                        /* ===== 7) RESPONSIVE ============= */
   @media (max-width: 768px) {
+
+/* Ajuste menú móvil */
+.nav-menu { flex-wrap: wrap; justify-content: center; margin-left: 0; margin-right: 0; }
+.nav-link { margin: 0; }
     .section {
       flex-direction: column;
       padding: 2rem 1rem;
@@ -376,22 +380,29 @@
 <body>
                                    <!-- ====== ENCABEZADO CON MENÚ ====== -->
    
-    <header>
+  <header>
+  <div class="navbar">
+    <a class="logo" href="index.html">Paz</a>
 
-  <div class="logo"><strong>Paz</strong></div>
+    <button class="nav-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
 
-  <nav class="nav-menu">
-   <a href="#projects" class="nav-link" id="menu-proyectos">Projects</a>
-    <div class="nav-link dropdown">
-  Languages <i class="fas fa-caret-down"></i>
-  <ul class="idioma-dropdown" id="idioma-menu">
-    <li onclick="cambiarIdioma('en')">English</li>
-    <li onclick="cambiarIdioma('es')">Español</li>
-  </ul>
-</div>
- <a href="#contact" class="nav-link" id="menu-contacto">Contact</a>
-  </nav>
+    <nav class="nav-links" aria-label="Navegación">
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+
+      <div class="dropdown">
+        <button class="dropdown-btn" type="button">Languages ▾</button>
+        <div class="dropdown-menu">
+          <button type="button" onclick="cambiarIdioma('en')">English</button>
+          <button type="button" onclick="cambiarIdioma('es')">Español</button>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>
+ 
 
                               <!-- ====== CONTENIDO PRINCIPAL ====== -->
     <main class="scroll-container">
@@ -595,6 +606,7 @@ cambiarIdioma(idiomaGuardado);
 
 
 </script>
- 
+ <script src="script.js"></script>
+
 </body>
 </html>
