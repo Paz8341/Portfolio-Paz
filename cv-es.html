@@ -89,6 +89,29 @@
 </head>
 
 <body>
+  <header>
+  <div class="navbar">
+    <a class="logo" href="/Portfolio-Paz/index.html">Paz</a>
+
+
+    <button class="nav-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" aria-label="Navegación">
+      <a href="/Portfolio-Paz/projects-es.html">Projects</a>
+      <a href="/Portfolio-Paz/cv-es.html">CV</a>
+
+      <div class="dropdown">
+        <button class="dropdown-btn" type="button">Languages ▾</button>
+        <div class="dropdown-menu">
+          <button type="button" onclick="cambiarIdioma('en')">English</button>
+          <button type="button" onclick="cambiarIdioma('es')">Español</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
   <main class="container">
     <h1>Paz Castillo Rocha</h1>
     <div class="subtitle">Estudiante de desarrollo web · Accesibilidad y diseño inclusivo</div>
@@ -179,5 +202,6 @@
 
     <a class="link" href="index.html">← Volver a inicio</a>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 
   <style>
     body {
@@ -97,13 +98,33 @@
 </head>
 
 <body>
+  <header>
+  <div class="navbar">
+   <a class="logo" href="/Portfolio-Paz/index.html">Paz</a>
 
-  <nav class="nav">
-    <a href="index.html" class="pink-button">← Home</a>
-    <a href="cv-en.html" class="pink-button">English</a>
-    <a href="cv-es.html" class="pink-button">Español</a>
-  </nav>
 
+
+    <button class="nav-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" aria-label="Navegación">
+     <a href="/Portfolio-Paz/projects-en.html">Projects</a>
+     <a href="/Portfolio-Paz/cv-en.html">CV</a>
+
+
+
+
+      <div class="dropdown">
+        <button class="dropdown-btn" type="button">Languages ▾</button>
+        <div class="dropdown-menu">
+          <button type="button" onclick="cambiarIdioma('en')">English</button>
+          <button type="button" onclick="cambiarIdioma('es')">Español</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
   <main>
 
     <h1>Paz Castillo Rocha</h1>
@@ -177,6 +198,7 @@
   <footer>
     © 2025 My Website
   </footer>
+<script src="script.js"></script>
 
 </body>
 </html>
