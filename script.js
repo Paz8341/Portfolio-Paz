@@ -1,4 +1,4 @@
-// Menú móvil (hamburguesa)
+// ===== MENÚ MÓVIL (HAMBURGUESA) =====
 const headerEl = document.querySelector("header");
 const toggleBtn = document.querySelector(".nav-toggle");
 
@@ -7,7 +7,8 @@ if (toggleBtn && headerEl) {
     headerEl.classList.toggle("open");
   });
 }
-// Dropdown idiomas
+
+// ===== DROPDOWN DE IDIOMAS =====
 const dropdown = document.querySelector(".dropdown");
 const dropdownBtn = document.querySelector(".dropdown-btn");
 
@@ -21,12 +22,13 @@ if (dropdown && dropdownBtn) {
     dropdown.classList.remove("open");
   });
 }
-// ===== HAMBURGUESA / MENÚ RESPONSIVE =====
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
+
+// ===== MENÚ RESPONSIVE (NAV LINKS) =====
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
 
 if (navToggle && navLinks) {
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
   });
 }
