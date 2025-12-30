@@ -32,7 +32,6 @@ if (navToggle && navLinks) {
   });
 }
 // ===== NAVEGACIÓN SEGÚN IDIOMA =====
-const lang = localStorage.getItem("lang") || "en";
 
 const navProjects = document.getElementById("nav-projects");
 const navCV = document.getElementById("nav-cv");
@@ -40,8 +39,9 @@ const navCV = document.getElementById("nav-cv");
 if (navProjects) {
   navProjects.addEventListener("click", (e) => {
     e.preventDefault();
+    const currentLang = localStorage.getItem("lang") || "en";
     window.location.href =
-      lang === "es" ? "./projects-es.html" : "./projects-en.html";
+      currentLang === "es" ? "./projects-es.html" : "./projects-en.html";
   });
 }
 
@@ -49,7 +49,26 @@ if (navProjects) {
 if (navCV) {
   navCV.addEventListener("click", (e) => {
     e.preventDefault();
+    const currentLang = localStorage.getItem("lang") || "en";
     window.location.href =
-      lang === "es" ? "./cv-es.html" : "./cv-en.html";
+      currentLang === "es" ? "./cv-es.html" : "./cv-en.html";
   });
+}
+
+// ===== CAMBIO DE IDIOMA =====
+function cambiarIdioma(idioma) {
+  localStorage.setItem("lang", idioma);
+
+  const path = window.location.pathname;
+
+  if (path.includes("projects")) {
+    window.location.href =
+      idioma === "es" ? "./projects-es.html" : "./projects-en.html";
+  } else if (path.includes("cv")) {
+    window.location.href =
+      idioma === "es" ? "./cv-es.html" : "./cv-en.html";
+  } else {
+    // index u otras páginas
+    window.location.href = "./index.html";
+  }
 }
