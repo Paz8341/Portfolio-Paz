@@ -72,3 +72,28 @@ function cambiarIdioma(idioma) {
     window.location.href = "./index.html";
   }
 }
+// ===== SINCRONIZAR IDIOMA AL CARGAR (GitHub fix) =====
+(function syncLanguageOnLoad() {
+  const savedLang = localStorage.getItem("lang");
+  if (!savedLang) return;
+
+  const path = window.location.pathname;
+
+  if (path.includes("projects")) {
+    if (savedLang === "es" && path.includes("projects-en")) {
+      window.location.replace("./projects-es.html");
+    }
+    if (savedLang === "en" && path.includes("projects-es")) {
+      window.location.replace("./projects-en.html");
+    }
+  }
+
+  if (path.includes("cv")) {
+    if (savedLang === "es" && path.includes("cv-en")) {
+      window.location.replace("./cv-es.html");
+    }
+    if (savedLang === "en" && path.includes("cv-es")) {
+      window.location.replace("./cv-en.html");
+    }
+  }
+})();
