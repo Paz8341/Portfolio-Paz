@@ -41,14 +41,15 @@ if (navProjects) {
   navProjects.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.href =
-      lang === "es" ? "projects-es.html" : "projects-en.html";
+      lang === "es" ? "./projects-es.html" : "./projects-en.html";
   });
 }
+
 
 if (navCV) {
   navCV.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.href =
-      lang === "es" ? "cv-es.html" : "cv-en.html";
+      lang === "es" ? "./cv-es.html" : "./cv-en.html";
   });
 }
