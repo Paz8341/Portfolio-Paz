@@ -31,3 +31,24 @@ if (navToggle && navLinks) {
     navLinks.classList.toggle("open");
   });
 }
+// ===== NAVEGACIÓN SEGÚN IDIOMA =====
+const lang = localStorage.getItem("lang") || "en";
+
+const navProjects = document.getElementById("nav-projects");
+const navCV = document.getElementById("nav-cv");
+
+if (navProjects) {
+  navProjects.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href =
+      lang === "es" ? "projects-es.html" : "projects-en.html";
+  });
+}
+
+if (navCV) {
+  navCV.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href =
+      lang === "es" ? "cv-es.html" : "cv-en.html";
+  });
+}

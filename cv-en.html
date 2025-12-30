@@ -1,201 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV | Paz</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV – Paz</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: #F2F1ED;
       margin: 0;
-      padding: 0;
       color: #1f1f1f;
     }
 
-    main {
+    .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
     }
 
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
 
-    h1 {
-      font-size: 3rem;
-    }
+    h1 { font-size: 3rem; margin-bottom: 0.6rem; }
+    .subtitle { font-size: 1.1rem; opacity: 0.85; margin-bottom: 2rem; }
 
-    h2 {
-      font-size: 2rem;
-      margin-top: 2.5rem;
-    }
+    h2 { font-size: 1.6rem; margin-top: 2.2rem; margin-bottom: 0.8rem; }
+    p { font-size: 1.1rem; line-height: 1.7; margin: 0 0 1rem 0; }
 
-    h3 {
-      font-size: 1.3rem;
-      margin-top: 1.5rem;
-    }
-
-    p {
-      line-height: 1.7;
-      margin-top: 0.5rem;
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem;
+      margin-top: 1rem;
     }
 
     ul {
-      margin-top: 0.5rem;
-      padding-left: 1.2rem;
+      margin: 0.6rem 0 0 1.2rem;
+      padding: 0;
+      line-height: 1.8;
+      font-size: 1.05rem;
     }
 
-    li {
-      margin-bottom: 0.4rem;
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
 
-    .subtitle {
-      font-size: 1.2rem;
-      font-weight: 300;
-      margin-top: 0.5rem;
-    }
-
-    .muted {
-      color: #555;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .nav {
-      padding: 1.5rem 2rem;
+    @media (max-width: 700px) {
+      .two-col { grid-template-columns: 1fr; }
+      h1 { font-size: 2.4rem; }
     }
 
     .pink-button {
       background-color: #ff8fa3;
       border: 1px solid #333;
       color: black;
-      padding: 10px 25px;
-      font-size: 14px;
-      border-radius: 20px;
+      padding: 14px 46px;
+      font-size: 16px;
+      border-radius: 25px;
       cursor: pointer;
+      display: inline-block;
+      margin-top: 12px;
       text-decoration: none;
-      margin-right: 10px;
     }
 
-    .pink-button:hover {
-      background-color: #ff6f8e;
+    .pink-button:hover { background-color: #ff6f8e; }
+
+    .link {
+      display: inline-block;
+      margin-top: 1.8rem;
+      text-decoration: none;
+      color: #1f1f1f;
+      border-bottom: 1px solid rgba(0,0,0,0.25);
+      padding-bottom: 2px;
     }
+
+    .muted { opacity: 0.8; }
+    .tag { display:inline-block; padding: 6px 10px; border-radius: 999px; background:#faf3e0; margin: 6px 6px 0 0; }
   </style>
 </head>
 
 <body>
-  <header>
-  <div class="navbar">
-   <a class="logo" href="/Portfolio-Paz/index.html">Paz</a>
 
-
-    <button class="nav-toggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav-links" aria-label="Navegación">
-     <a href="/Portfolio-Paz/projects-en.html">Projects</a>
-     <a href="/Portfolio-Paz/cv-en.html">CV</a>
-
-
-      <div class="dropdown">
-        <button class="dropdown-btn" type="button">Languages ▾</button>
-        <div class="dropdown-menu">
-          <button type="button" onclick="cambiarIdioma('en')">English</button>
-          <button type="button" onclick="cambiarIdioma('es')">Español</button>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
-  <main>
-
+  <main class="container">
     <h1>Paz Castillo Rocha</h1>
-    <p class="subtitle">Web Development Student · Accessibility & Inclusive Design</p>
+    <div class="subtitle">Web Development Student · Accessibility & Inclusive Design</div>
 
-    <h2>Contact</h2>
-    <p>Email: pazcastillorocha@gmail.com</p>
+    <section class="card">
+      <h2>Contact</h2>
+      <p>📧 <strong>pazcastillorocha@gmail.com</strong></p>
+    </section>
 
-    <h2>Profile</h2>
-    <p>
+    <section class="card">
+      <h2>Profile</h2>
+      <p>
       Web development student with a strong interest in accessibility and inclusive design.
       My professional background in special education has provided me with a close, practical
       understanding of cognitive, communicative and functional barriers.
       This experience directly influences how I approach web design, usability and clarity.
-    </p>
+      </p>
+    </section>
 
-    <h2>Key Skills</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript, Bootstrap</li>
-      <li>Responsive design and accessibility fundamentals</li>
-      <li>User-centered and inclusive thinking</li>
-      <li>Clear structure and content organization</li>
-      <li>Microsoft Office (Word, Excel, PowerPoint)</li>
-    </ul>
+    <section class="card">
+      <h2>Key Skills</h2>
+      <div class="muted">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Bootstrap</span>
+        <span class="tag">Responsive design</span>
+        <span class="tag">Accessibility fundamentals</span>
+        <span class="tag">User-centered thinking</span>
+        <span class="tag">Microsoft Office</span>
+      </div>
+    </section>
 
-    <h2>Professional Experience</h2>
+    <section class="card">
+      <h2>Professional Experience</h2>
 
-    <h3>Support Assistant – Special Education</h3>
-    <p class="muted">Innovitaskolan Joriel | 2022 – Present</p>
-    <ul>
-      <li>Close daily work with children with special support needs</li>
-      <li>Learning support through conductive pedagogy</li>
-      <li>Continuous observation of accessibility, communication and cognitive challenges</li>
-      <li>Practical experience that informs my approach to accessible and user-friendly digital design</li>
-    </ul>
+      <h3>Support Assistant – Special Education</h3>
+      <p class="muted"><strong>Innovitaskolan Joriel</strong> | 2022 – Present</p>
+      <ul>
+        <li>Working closely with children with specific support needs</li>
+        <li>Support for learning through conductive pedagogy</li>
+        <li>Continuous observation of accessibility, communication and cognitive challenges</li>
+        <li>Practical experience that informs my approach to accessible and user-friendly digital design</li>
+      </ul>
 
-    <h3>Teaching Assistant</h3>
-    <p class="muted">Foucaultgymnasiet | 2021 – 2022</p>
-    <ul>
-      <li>Worked with students with functional variations</li>
-      <li>Support within national and individual educational programs</li>
-      <li>Strong focus on clarity, structure and adapted communication</li>
-    </ul>
+      <h3 style="margin-top:1.4rem;">Teaching Assistant</h3>
+      <p class="muted"><strong>Foucaultgymnasiet</strong> | 2021 – 2022</p>
+      <ul>
+        <li>Worked with students with functional variations</li>
+        <li>Support within national and individual educational programs</li>
+        <li>Strong focus on clarity, structure and adapted communication</li>
+      </ul>
 
-    <h3>Additional Professional Experience</h3>
-    <p class="muted">
-      Experience within the real estate and insurance sectors, performing roles related to
-      customer service, team coordination and process management.
-      These professional stages strengthened key skills such as effective communication,
-      teamwork, responsibility, organization and leadership, competencies that I now apply
-      in educational contexts and in people-centered digital projects.
-    </p>
 
-    <h2>Education</h2>
-    <ul>
-      <li>Childcare Education (Barnskötare) – Medlearn (2020–2021)</li>
-      <li>Ongoing studies to complete upper secondary education (Komvux)</li>
-      <li>Web Development studies (HTML, CSS, JavaScript) – ongoing</li>
-    </ul>
+      <h3 style="margin-top:1.4rem;">Additional Professional Experience</h3>
+      <p class="muted">
+         Experience in the real estate and insurance sectors, performing customer service, team coordination,
+         and process management functions. These professional experiences allowed me to develop key skills
+         such as effective communication, teamwork, responsibility, organization, and leadership —
+         competencies that I now apply in educational contexts and in the development of people-centered
+         digital projects.
+</p>
 
-    <h2>Languages</h2>
-    <ul>
-      <li>Spanish – Native</li>
-      <li>Valencian – Native</li>
-      <li>Swedish – Komvux level 2</li>
-      <li>English – Basic / Intermediate</li>
-    </ul>
+    </section>
 
+    <section class="card">
+      <h2>Education</h2>
+      <ul>
+        <li>Childcare Education (Barnskötare) – Medlearn (2020–2021)</li>
+        <li>Ongoing studies to complete upper secondary education (Komvux)</li>
+        <li>Web Development studies (HTML, CSS, JavaScript) – ongoing</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Languages</h2>
+      <ul>
+        <li>Spanish – Native</li>
+        <li>Valencian – Native</li>
+        <li>Swedish – Komvux (level 2)</li>
+        <li>English – Basic / Intermediate</li>
+      </ul>
+
+    </section>
+
+    <a class="link" href="index.html">← Home</a>
   </main>
-
-  <footer>
-    © 2025 My Website
-  </footer>
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
