@@ -70,14 +70,18 @@
     padding: 5px 10px;
     font-family: proxima nova; /* fuente de la pagina */
   }
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
-  .nav-menu {
-    display: flex;
-    gap: 1rem;
-    margin-left: auto;
-    margin-right: 20px;
-    align-items: center;
-  }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
 
   .nav-link {
     text-decoration: none;
@@ -390,14 +394,15 @@
    
   <header>
   <div class="navbar">
-   <a class="logo" href="/Portfolio-Paz/index.html">Paz</a>
- <button class="nav-toggle" aria-label="Abrir menú">
+  <a class="logo" href="index.html">Paz</a>
+  <button class="nav-toggle" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
 
    <nav class="nav-links" aria-label="Navegación">
-  <a href="/Portfolio-Paz/projects-en.html">Projects</a>
-  <a href="/Portfolio-Paz/cv-en.html">CV</a>
+<a href="projects-en.html">Projects</a>
+<a href="cv-en.html">CV</a>
+ 
 
 
 
@@ -622,4 +627,3 @@ cambiarIdioma(idiomaGuardado);
 
 </body>
 </html>
-

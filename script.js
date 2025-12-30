@@ -7,7 +7,6 @@ if (toggleBtn && headerEl) {
     headerEl.classList.toggle("open");
   });
 }
-
 // ===== DROPDOWN DE IDIOMAS =====
 const dropdown = document.querySelector(".dropdown");
 const dropdownBtn = document.querySelector(".dropdown-btn");
