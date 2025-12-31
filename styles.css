@@ -306,8 +306,7 @@ header {
 }
 /* ===== FOOTER ===== */
 footer {
-  background-color: #1F305E
- ;   /* Twilight Indigo */
+  background-color:#18284A; /* azul del foot */
   color:#edeff2;
   padding: 2.5rem 1rem;
   text-align: center;
