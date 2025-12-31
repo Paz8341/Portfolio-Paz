@@ -277,4 +277,49 @@ header {
   #contact {
     padding-top: 3rem !important;
   }
- 
+  }
+
+ /* ===== AJUSTE LIMPIO BORDES SECCIÓN ENFOQUE (DESKTOP) ===== */
+@media (min-width: 901px) {
+
+  .scroll-item.second-section {
+    padding: 0;
+  }
+
+  .enfoque-section {
+    padding: 0;
+    margin: 0;
+  }
+
+  .enfoque-img {
+    margin: 0;
+  }
+
+  .enfoque-section .text-content {
+    padding: 4rem; /* mantiene aire SOLO en el texto */
+  }
+
+  .scroll-container {
+  padding-right: 0;
+  overflow-x: hidden;
+}
+}
+/* ===== FOOTER ===== */
+footer {
+  background-color: #1F305E
+ ;   /* Twilight Indigo */
+  color:#edeff2;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+footer a {
+  color: #F2F2F2;
+}
+
+footer a:hover {
+  opacity: 0.8;
+}
+
+
+
