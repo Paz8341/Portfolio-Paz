@@ -60,6 +60,17 @@ function cambiarIdioma(idioma) {
   localStorage.setItem("lang", idioma);
 
   const path = window.location.pathname;
+  // ===== CAMBIAR TEXTO DEL HEADER =====
+  const navProjects = document.getElementById("nav-projects");
+  const navLanguage = document.getElementById("nav-language");
+
+  if (idioma === "es") {
+    if (navProjects) navProjects.textContent = "Proyectos";
+    if (navLanguage) navLanguage.textContent = "Idiomas ▾";
+  } else {
+    if (navProjects) navProjects.textContent = "Projects";
+    if (navLanguage) navLanguage.textContent = "Languages ▾";
+  }
 
   if (path.includes("projects")) {
     window.location.href =
@@ -76,6 +87,17 @@ function cambiarIdioma(idioma) {
 (function syncLanguageOnLoad() {
   const savedLang = localStorage.getItem("lang");
   if (!savedLang) return;
+  // ===== APLICAR TEXTO DEL HEADER AL CARGAR =====
+  const navProjects = document.getElementById("nav-projects");
+  const navLanguage = document.getElementById("nav-language");
+
+  if (savedLang === "es") {
+    if (navProjects) navProjects.textContent = "Proyectos";
+    if (navLanguage) navLanguage.textContent = "Idiomas ▾";
+  } else {
+    if (navProjects) navProjects.textContent = "Projects";
+    if (navLanguage) navLanguage.textContent = "Languages ▾";
+  }
 
   const path = window.location.pathname;
 
