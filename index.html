@@ -326,12 +326,15 @@
   @media (max-width: 768px) {
 
 /* Ajuste menú móvil */
-.nav-menu { flex-wrap: wrap; justify-content: center; margin-left: 0; margin-right: 0; }
-.nav-link { margin: 0; }
-
-/* Ajuste menú móvil */
-.nav-menu { flex-wrap: wrap; justify-content: center; margin-left: 0; margin-right: 0; }
-.nav-link { margin: 0; }
+    .nav-menu { 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      margin-left: 0; 
+      margin-right: 0;
+     }
+    .nav-link { 
+      margin: 0; 
+    }
     .section {
       flex-direction: column;
       padding: 2rem 1rem;
@@ -387,10 +390,23 @@
       width: 100%;
       padding: 2rem;
     }
+
   /* MENÚ MÓVIL: ocultar botones verdes */
     .nav-links {
        display: none;
 }
+
+
+/* MENÚ MÓVIL ABIERTO: ocultar Languages */
+.nav-links .dropdown {
+  display: none;
+}
+
+/* MENÚ MÓVIL ABIERTO: ocultar hamburguesa cuando el menú está abierto */
+header.open .nav-toggle {
+  display: none;
+
+  }
   }
 </style>
 
