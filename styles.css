@@ -350,6 +350,20 @@ footer a {
 footer a:hover {
   opacity: 0.8;
 }
+/* ====== MEDIA QUERY · MENÚ MÓVIL ======
 
+   Este bloque controla SOLO el comportamiento del menú en pantallas pequeñas
+   (móviles y tablets)
+*/
+@media (max-width: 768px) {
 
+  /* Oculta los botones verdes (Projects / CV / Languages) en modo móvil */
+  .nav-links {
+    display: none;
+  }
 
+  /* Muestra el icono de hamburguesa solo en modo móvil */
+  .nav-toggle {
+    display: block;
+  }
+}
