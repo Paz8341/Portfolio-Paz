@@ -366,4 +366,42 @@ footer a:hover {
   .nav-toggle {
     display: block;
   }
+    /* === ACCIONES MÓVIL (🌍 + ☰) === */
+  .mobile-actions {
+    display: flex;          /* coloca 🌍 y ☰ en fila */
+    gap: 0.5rem;            /* espacio entre botones */
+    margin-left: auto;      /* empuja el grupo a la derecha */
+  }
+
+  /* Estilo común para ambos botones */
+  .mobile-actions .nav-toggle {
+
+    background: #C5BC8E;    /* mismo verde que Projects / CV */
+    border: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+ /* Botón idioma (🌍) – visible, limpio y alineado */
+.lang-toggle {
+  display: inline-flex;        /* asegura que SE VEA */
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;     /* sin fondo */
+  border: none;                /* sin borde */
+  box-shadow: none;
+
+  color: #1f1f1f;              /* MISMO color que Paz / hamburguesa */
+  padding: 8px;
+  font-size: 22px;             /* tamaño visible del icono */
+  cursor: pointer;
+}
+
+
 }
