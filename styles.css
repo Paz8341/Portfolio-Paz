@@ -63,25 +63,55 @@ header { /*Contenedor principal del menú superior*/
 .nav-links a:hover { /* Hover de los enlaces */
   background: #ffffff; }  /* cambia el fondo al pasar el ratón */
 
-/* Botón hamburguesa */
 
-.nav-toggle { /* Botón que abre/cierra el menú en pantallas pequeñas */
-  display: none; /* oculto en desktop */
-  margin-left: auto; /* se alinea a la derecha */
-  border: 1px solid rgba(0,0,0,0.25);/* borde suave */
-  background: #fff;/* fondo blanco */
-  border-radius: 12px; /* esquinas redondeadas */
-  padding: 10px 12px;/* tamaño del botón */
-  cursor: pointer; /* cursor de botón */
+/* ===== HAMBURGUESA CLÁSICA (3 RAYAS) ===== */
+
+/* Botón hamburguesa (contenedor del icono) */
+.nav-toggle { 
+  display: none;   /* oculto por defecto (desktop) */      
+  margin-left: auto; /* Empuja el botón a la derecha */
+  background: #C5BC8E; /* Fondo verde (igual que los botones del menú) */
+  border: none;   /* Sin borde */
+  border-radius: 999px; /* Forma completamente redondeada */
+  cursor: pointer; /* Cursor de botón clicable */
+  align-items: center;
+  justify-content: center;
+  width: 38px;      /* ancho fijo del botón */
+  height: 28px;     /* alto fijo del botón */
+  padding: 0;       /* evita que la pastilla se alargue */
+
 }
 
-.nav-toggle span {/* Cada línea del icono hamburguesa */
-  display: block;/* cada línea ocupa una fila */
-  width: 22px;/* ancho de la línea */
-  height: 2px;/* grosor de la línea */
-  background: #1f1f1f;/* color de la línea */
-  margin: 5px 0;/* separación entre líneas */
+/* Línea central de la hamburguesa */
+.nav-toggle span {
+  position: relative;  /* Referencia para ::before y ::after */
+  width: 6px;  /* Ancho de cada raya */
+  height: 1.5px; /* Grosor de la raya */
+  background: #1f1f1f; /* Color de las rayas */
+  display: block; /* Se comporta como bloque */
 }
+
+/* Rayas superior e inferior */
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";                /* Necesario para que el pseudo-elemento exista */
+  position: absolute;         /* Posición absoluta respecto al span */
+  left: 0;                    /* Alineadas a la izquierda */
+  width: 6px;                /* Mismo ancho que la raya central */
+  height: 1.5px;                /* Mismo grosor */
+  background: #1f1f1f;        /* Mismo color */
+}
+
+/* Raya superior */
+.nav-toggle span::before {
+  top: -4px;                  /* Se coloca arriba de la raya central */
+}
+
+/* Raya inferior */
+.nav-toggle span::after {
+  top: 4px;                   /* Se coloca debajo de la raya central */
+}
+
 
 /* Dropdown idiomas */
 
@@ -336,6 +366,7 @@ header { /*Contenedor principal del menú superior*/
 }
 }
 /* ===== FOOTER ===== */
+
 footer {
   background-color:#18284A; /* azul del foot */
   color:#edeff2;
@@ -357,51 +388,44 @@ footer a:hover {
 */
 @media (max-width: 768px) {
 
-  /* Oculta los botones verdes (Projects / CV / Languages) en modo móvil */
-  .nav-links {
+  .nav-links {/* Oculta los botones verdes (Projects / CV / Languages) en modo móvil */
     display: none;
   }
 
-  /* Muestra el icono de hamburguesa solo en modo móvil */
-  .nav-toggle {
+  .nav-toggle {/* Muestra el icono de hamburguesa solo en modo móvil */
     display: block;
   }
-    /* === ACCIONES MÓVIL (🌍 + ☰) === */
+/* === ACCIONES MÓVIL (🌍 + ☰) === */
+
   .mobile-actions {
     display: flex;          /* coloca 🌍 y ☰ en fila */
     gap: 0.5rem;            /* espacio entre botones */
     margin-left: auto;      /* empuja el grupo a la derecha */
   }
 
-  /* Estilo común para ambos botones */
-  .mobile-actions .nav-toggle {
-
+  .mobile-actions .nav-toggle { /* Estilo común para ambos botones */ 
     background: #C5BC8E;    /* mismo verde que Projects / CV */
     border: none;
     border-radius: 999px;
-    padding: 10px 14px;
-    font-size: 16px;
+    width: 38px;     /* mismo tamaño que el botón base */
+    height: 28px;
+    padding: 0;      /* evita que se alargue */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
- /* Botón idioma (🌍) – visible, limpio y alineado */
-.lang-toggle {
-  display: inline-flex;        /* asegura que SE VEA */
-  align-items: center;
-  justify-content: center;
-
-  background: transparent;     /* sin fondo */
-  border: none;                /* sin borde */
-  box-shadow: none;
-
-  color: #1f1f1f;              /* MISMO color que Paz / hamburguesa */
-  padding: 8px;
-  font-size: 22px;             /* tamaño visible del icono */
-  cursor: pointer;
-}
-
-
+  .lang-toggle {/* Botón idioma (🌍) – visible, limpio y alineado */
+    display: inline-flex;  /* asegura que SE VEA */
+    align-items: center;
+    justify-content: center;
+    background: transparent; /* sin fondo */
+    border: none; /* sin borde */
+    box-shadow: none;
+    color: #1f1f1f; /* MISMO color que Paz / hamburguesa */
+    padding: 8px;
+    font-size: 22px; /* tamaño visible del icono */
+    cursor: pointer;
+  }
 }
