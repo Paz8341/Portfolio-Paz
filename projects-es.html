@@ -137,25 +137,27 @@
     .btn:hover {
       background-color: #ff6f8e;
     }
+/* ===== FOOTER: centrado y visibilidad de iconos Git Hub y Linkedln===== */
 
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      width: 100%;
-    }
+/* Centra el contenido del footer horizontalmente */
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0; /* espacio arriba y abajo */
+}
 
-    .social-icons { margin-top: 10px; }
+/* Contenedor de los iconos sociales */
+.social-icons {
+  display: flex;      /* coloca los iconos en fila */
+  gap: 2rem;          /* espacio entre GitHub y LinkedIn */
+}
 
-    .social-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 24px;
-      transition: color 0.3s;
-    }
+/* Tamaño de los iconos (Font Awesome) */
+.social-icons a {
+  font-size: 34px;    /* iconos más visibles */
+}
 
-    .social-icons a:hover { color: #ff8fa3; }
+    
 
     @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
@@ -206,18 +208,16 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Mi sitio web</p>
-    <div class="social-icons">
-      <a href="https://github.com/tu_usuario" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://linkedin.com/in/tu_usuario" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="ruta-a-tu-cv.pdf" target="_blank" aria-label="Currículum">
-        <i class="fas fa-file-alt"></i>
-      </a>
-    </div>
-  </footer>
+  <div class="social-icons">
+    <a href="https://github.com/Paz8341" target="_blank" aria-label="GitHub">
+
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/paz-castillo-268824127" target="_blank" aria-label="LinkedIn">
+
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+</footer>
 </body>
 </html>
