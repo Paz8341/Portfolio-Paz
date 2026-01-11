@@ -260,6 +260,50 @@ header { /*Contenedor principal del menú superior*/
 
 @media (max-width: 900px) {
 
+/* HERO · Imagen full width tipo Adri */
+.scroll-item:first-of-type .image-content {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+  /* ===== HERO MÓVIL · ORDEN DEFINITIVO ===== */
+
+.scroll-item:first-of-type .section {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* rompe el wrapper de texto solo visualmente */
+.scroll-item:first-of-type .text-content {
+  display: contents;
+}
+
+.scroll-item:first-of-type #intro-titulo {
+  order: 1;
+  margin-bottom: 0.5rem;
+}
+
+.scroll-item:first-of-type .image-content {
+  order: 2;
+  width: 100%;
+  max-width: 90vw;      /* ← AQUÍ se hace grande */
+  margin: 1.5rem auto;  /* centrada */
+}
+
+.scroll-item:first-of-type #intro-parrafo {
+  order: 3;
+}
+
+.scroll-item:first-of-type #intro-boton {
+  order: 4;
+}
+
+/* HERO · Imagen más cuadrada */
+.scroll-item:first-of-type .image-content img {
+  width: 100% !important;
+  aspect-ratio:  4/ 5;   /* cuadrada */
+  height: auto !important;
+}
+
  .scroll-item {/* Evita que height:100vh rompa el diseño en móvil */
   height: auto !important;
   min-height: auto !important;
@@ -294,12 +338,7 @@ header { /*Contenedor principal del menú superior*/
 /* Imágenes generales */
   .image-content {
     margin: 0 !important;
-  }
-/* Imagen genérica */
-  .image-content img {
-    width: 100% !important;
-    height: 260px !important;
-    border-radius: 28px !important;
+  
   }
 
 /* Texto: bajar tamaños en móvil para que no se monten */ 
