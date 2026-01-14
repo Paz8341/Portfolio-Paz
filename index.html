@@ -377,17 +377,18 @@
   height: 22px;
   stroke: currentColor;
 }
-
+/* MENÚ MÓVIL ABIERTO: ocultar icono idioma (bolita) */
+header.open .lang-toggle {
+  display: none;
+}
 /* Ajuste menú móvil */
     .nav-menu { 
       flex-wrap: wrap; 
       justify-content: center; 
       margin-left: 0; 
       margin-right: 0;
-     }
-    .nav-link { 
-      margin: 0; 
-    }
+     } 
+
     .section {
       flex-direction: column;
       padding: 2rem 1rem;
@@ -461,6 +462,31 @@ header.open .nav-toggle {
   display: none;
 
   }
+  /* ===== MENÚ MÓVIL COMO LISTA (SIN BOTONES) ===== */
+
+header.open .nav-links {
+  display: flex;              /* muestra el menú */
+  flex-direction: column;     /* lista vertical */
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  gap: 1.2rem;
+}
+
+header.open .nav-link {
+  background: none;           /* quita verde */
+  border-radius: 0;
+  padding: 0;                 /* quita forma de botón */
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000;
+}
+
+header.open .nav-link:hover {
+  background: none;
+  color: #218838;
+}
+
   }
 </style>
 
