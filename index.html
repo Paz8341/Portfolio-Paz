@@ -422,11 +422,6 @@ header.open .lang-toggle {
       font-size: 1rem;
     }
 
-    .nav-link, .nav-button {
-      font-size: 14px;
-      padding: 8px 16px;
-    }
-
     .scroll-item {
       padding: 2rem 1rem;
       
@@ -450,7 +445,27 @@ header.open .lang-toggle {
     .nav-links {
        display: none;
 }
+/* ===== MENÚ MÓVIL – LISTA MÍNIMA ===== */
 
+header.open .nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+header.open .nav-link {
+  background: none;
+  padding: 0;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #000;
+}
+
+header.open .nav-link:hover {
+  color: #218838;
+}
 
 /* MENÚ MÓVIL ABIERTO: ocultar Languages */
 .nav-links .dropdown {
@@ -497,9 +512,10 @@ header.open .nav-link:hover {
   <header>
   <div class="navbar">
   <a class="logo" href="index.html">Paz</a>
- <!-- ====== ACCIONES MÓVIL (derecha) ======
--->
-<div class="mobile-actions">
+
+ <!-- ====== ACCIONES MÓVIL (derecha) ====== -->
+
+   <div class="mobile-actions">
 
   <!-- Botón idioma (móvil) -->
   <button class="lang-toggle" aria-label="Change language">
@@ -507,11 +523,16 @@ header.open .nav-link:hover {
   <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.3"/>
   <path d="M4 12h16M12 3.5c3.5 3.8 3.5 13.2 0 17M12 3.5c-3.5 3.8-3.5 13.2 0 17"
       stroke="currentColor" stroke-width="1.3" fill="none"/>
-
   </svg>
-</button>
-
-
+      </button>
+      
+<!-- DROPDOWN IDIOMAS · MÓVIL -->
+  <div class="dropdown mobile-dropdown">
+    <div class="dropdown-menu">
+      <button type="button" onclick="cambiarIdioma('en')">English</button>
+      <button type="button" onclick="cambiarIdioma('es')">Español</button>
+    </div>
+  </div>
   <!-- Botón menú (hamburguesa) -->
   <button class="nav-toggle" aria-label="Abrir menú">
     <span></span><span></span><span></span>

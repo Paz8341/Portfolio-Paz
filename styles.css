@@ -425,7 +425,23 @@ footer a:hover {
    Este bloque controla SOLO el comportamiento del menú en pantallas pequeñas
    (móviles y tablets)
 */
+/* ===== DROPDOWN IDIOMAS (VISIBILIDAD) ===== */
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
 @media (max-width: 768px) {
+.mobile-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 1rem;
+  z-index: 1001;
+}
 
   .nav-links {/* Oculta los botones verdes (Projects / CV / Languages) en modo móvil */
     display: none;
@@ -434,6 +450,14 @@ footer a:hover {
   .nav-toggle {/* Muestra el icono de hamburguesa solo en modo móvil */
     display: block;
   }
+    /* ===== DROPDOWN IDIOMAS (MÓVIL) ===== */
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    min-width: 140px;
+  }
+
+
 /* === ACCIONES MÓVIL (🌍 + ☰) === */
 
   .mobile-actions {

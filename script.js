@@ -7,19 +7,33 @@ if (toggleBtn && headerEl) {// Comprueba que ambos existen antes de usarlo (evit
     headerEl.classList.toggle("open");// Añade o quita la clase "open" al header (CSS abre/cierra menú)
   });
 }
-// ===== DROPDOWN DE IDIOMAS =====
 
-const dropdown = document.querySelector(".dropdown");// Contenedor del dropdown (ul / div que se abre)
-const dropdownBtn = document.querySelector(".dropdown-btn");// Botón que activa el dropdown
+// ===== DROPDOWN DE IDIOMAS · DESKTOP =====
+const desktopDropdown = document.querySelector(".nav-links .dropdown");
+const desktopDropdownBtn = document.querySelector(".dropdown-btn");
 
-if (dropdown && dropdownBtn) {// Solo si ambos existen
-  dropdownBtn.addEventListener("click", (e) => {// Click en el botón de idiomas
-    e.stopPropagation(); // Evita que el click cierre el menú inmediatamente
-    dropdown.classList.toggle("open");// Abre o cierra el dropdown
+// ===== DROPDOWN DE IDIOMAS · MÓVIL =====
+const mobileDropdown = document.querySelector(".mobile-dropdown");
+const langToggleMobile = document.querySelector(".lang-toggle");
+
+// Móvil: 🌍 lenguajes
+
+if (langToggleMobile && mobileDropdown) {
+    langToggleMobile.addEventListener("click", (e) => {
+    e.stopPropagation();
+    mobileDropdown.classList.toggle("open");
   });
-
-  document.addEventListener("click", () => {// Click en cualquier parte del documento
-    dropdown.classList.remove("open");// Cierra el dropdown si estaba abierto
+}
+// Cerrar dropdowns al hacer click fuera
+document.addEventListener("click", () => {
+  if (mobileDropdown) mobileDropdown.classList.remove("open");
+  if (desktopDropdown) desktopDropdown.classList.remove("open");
+});
+// Desktop: Languages ▾
+if (desktopDropdown && desktopDropdownBtn) {
+  desktopDropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    desktopDropdown.classList.toggle("open");
   });
 }
 
@@ -29,7 +43,7 @@ const navToggle = document.querySelector(".nav-toggle");// Botón hamburguesa (o
 const navLinks = document.querySelector(".nav-links");// Contenedor de los enlaces de navegación
 
 if (navToggle && navLinks) {// Si existen ambos elementos
-  navToggle.addEventListener("click", () => {// Click en la hamburguesa
+    navToggle.addEventListener("click", () => {// Click en la hamburguesa
     navLinks.classList.toggle("open");// Abre o cierra solo los links del menú
   });
 }
@@ -39,11 +53,11 @@ const navProjects = document.getElementById("nav-projects"); // Enlace del menú
 const navCV = document.getElementById("nav-cv"); // Enlace del menú "CV"
 
 if (navProjects) {// Projects
-  navProjects.addEventListener("click", (e) => {
+    navProjects.addEventListener("click", (e) => {
     e.preventDefault();// Evita que el enlace navegue por defecto
-    const currentLang = localStorage.getItem("lang") || "en";// Lee el idioma guardado o usa inglés por defecto
+const currentLang = localStorage.getItem("lang") || "en";// Lee el idioma guardado o usa inglés por defecto
     window.location.href =
-      currentLang === "es" ? "./projects-es.html" : "./projects-en.html";
+    currentLang === "es" ? "./projects-es.html" : "./projects-en.html";
   });// Redirige a la página correcta según idioma
 }
 
