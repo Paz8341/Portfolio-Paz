@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
-    <link rel="stylesheet" href="styles.css">
 
     <title>Mi Página Web</title>
 
@@ -118,7 +117,6 @@
   .dropdown {
     position: relative;
     cursor: pointer;
-    padding: 10px 20px;
     border-radius: 20px;
     background-color: #C5BC8E;
     display: inline-block;
@@ -161,6 +159,32 @@
   .idioma-dropdown li:hover {
     background-color: #C5BC8E;
   }
+  .dropdown-btn {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  line-height: 1,2;
+  cursor: pointer;
+}
+.lang-toggle {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #6b705c; /* elegante, no negro */
+  display: flex;
+  align-items: center;
+}
+.lang-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.3;
+}
+.lang-toggle:hover {
+  color:#218838;
+}
+
 
                          /* =======3 SCROLL / SECCIONES====== */
                          /* Ocultar barra de scroll (mantiene el scroll activo) */
@@ -191,7 +215,7 @@
   .section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 1200px;
     width: 100%;
     padding: 3rem 2rem;
@@ -200,14 +224,14 @@
 
   .text-content {
     flex: 1;
-    margin-right: 2rem;
+    margin-right: 0;
   }
 
   .image-content {
     flex: 1;
     display: flex;
     justify-content: center;
-    margin-left: 2rem;
+    margin-left: 0;
   }
 
   .image-content img {
@@ -215,19 +239,20 @@
     height: 510px;
     object-fit: cover;
     border-radius: 60px;
+    margin-top: 3rem; /* baja la imagen sin afectar al header */
   }
 
                             /* =======4. SECCIÓN 2 (ENFOQUE)====== */
   .enfoque-section {
     display: flex;
-    height: 100vh; /* lo mantengo porque estaba en tu original */
+    height: auto; 
     padding: 0;
     margin: 0;
   }
 
   .enfoque-img {
     width: 50vw;
-    height: 100vh;
+    height: auto;
     margin: 0;
     padding: 0;
     flex-shrink: 0;
@@ -269,7 +294,7 @@
   font-size: 1.25rem;
   line-height: 1.85;  /*mas aire entre lineas*/
   margin-bottom: 1.5rem;
-  max-width: 70%;  /*ancho de la lectura*/
+  max-width: 85%;  /*ancho de la lectura*/
   color:  #1f1f1f;
   font-weight: 400;
 }
@@ -295,25 +320,18 @@
   }
 
                          /* =====  6) FOOTER  ========= */
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
+ 
 
   .social-icons {
     margin-top: 10px;
   }
 
   .social-icons a {
-    color: white;
-    margin: 0 10px;
-    font-size: 24px;
+    color:#edeff2 ;
+    margin: 0 16px;
+    font-size: 34px;
     transition: color 0.3s;
+    text-decoration: none;
   }
 
   .social-icons a:hover {
@@ -321,15 +339,56 @@
   }
 
                        /* ===== 7) RESPONSIVE ============= */
+
+  .lang-toggle {
+    display: none; /* (🌍) oculto por defecto en PC */
+}
+
   @media (max-width: 768px) {
 
-/* Ajuste menú móvil */
-.nav-menu { flex-wrap: wrap; justify-content: center; margin-left: 0; margin-right: 0; }
-.nav-link { margin: 0; }
+/* ===== BOTÓN IDIOMA MÓVIL (🌍) ===== */
 
+/* Asegura que el grupo de acciones se vea */
+.mobile-actions {
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+/* Botón idioma: solo icono, visible y negro */
+.lang-toggle {
+  display: inline-flex;/* globo en modo movil*/
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  color: #000; /* mismo color que Paz */
+  padding: 6px;
+  cursor: pointer;
+}
+
+/* Tamaño real del icono */
+.lang-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+/* MENÚ MÓVIL ABIERTO: ocultar icono idioma (bolita) */
+header.open .lang-toggle {
+  display: none;
+}
 /* Ajuste menú móvil */
-.nav-menu { flex-wrap: wrap; justify-content: center; margin-left: 0; margin-right: 0; }
-.nav-link { margin: 0; }
+    .nav-menu { 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      margin-left: 0; 
+      margin-right: 0;
+     } 
+
     .section {
       flex-direction: column;
       padding: 2rem 1rem;
@@ -363,13 +422,9 @@
       font-size: 1rem;
     }
 
-    .nav-link, .nav-button {
-      font-size: 14px;
-      padding: 8px 16px;
-    }
-
     .scroll-item {
       padding: 2rem 1rem;
+      
     }
 
     .enfoque-section {
@@ -385,6 +440,68 @@
       width: 100%;
       padding: 2rem;
     }
+
+  /* MENÚ MÓVIL: ocultar botones verdes */
+    .nav-links {
+       display: none;
+}
+/* ===== MENÚ MÓVIL – LISTA MÍNIMA ===== */
+
+header.open .nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+header.open .nav-link {
+  background: none;
+  padding: 0;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #000;
+}
+
+header.open .nav-link:hover {
+  color: #218838;
+}
+
+/* MENÚ MÓVIL ABIERTO: ocultar Languages */
+.nav-links .dropdown {
+  display: none;
+}
+
+/* MENÚ MÓVIL ABIERTO: ocultar hamburguesa cuando el menú está abierto */
+header.open .nav-toggle {
+  display: none;
+
+  }
+  /* ===== MENÚ MÓVIL COMO LISTA (SIN BOTONES) ===== */
+
+header.open .nav-links {
+  display: flex;              /* muestra el menú */
+  flex-direction: column;     /* lista vertical */
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  gap: 1.2rem;
+}
+
+header.open .nav-link {
+  background: none;           /* quita verde */
+  border-radius: 0;
+  padding: 0;                 /* quita forma de botón */
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000;
+}
+
+header.open .nav-link:hover {
+  background: none;
+  color: #218838;
+}
+
   }
 </style>
 
@@ -395,19 +512,41 @@
   <header>
   <div class="navbar">
   <a class="logo" href="index.html">Paz</a>
+
+ <!-- ====== ACCIONES MÓVIL (derecha) ====== -->
+
+   <div class="mobile-actions">
+
+  <!-- Botón idioma (móvil) -->
+  <button class="lang-toggle" aria-label="Change language">
+  <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.3"/>
+  <path d="M4 12h16M12 3.5c3.5 3.8 3.5 13.2 0 17M12 3.5c-3.5 3.8-3.5 13.2 0 17"
+      stroke="currentColor" stroke-width="1.3" fill="none"/>
+  </svg>
+      </button>
+      
+<!-- DROPDOWN IDIOMAS · MÓVIL -->
+  <div class="dropdown mobile-dropdown">
+    <div class="dropdown-menu">
+      <button type="button" onclick="cambiarIdioma('en')">English</button>
+      <button type="button" onclick="cambiarIdioma('es')">Español</button>
+    </div>
+  </div>
+  <!-- Botón menú (hamburguesa) -->
   <button class="nav-toggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
+    <span></span><span></span><span></span>
+  </button>
 
-   <nav class="nav-links" aria-label="Navegación">
-<a href="projects-en.html">Projects</a>
-<a href="cv-en.html">CV</a>
- 
+</div>
 
 
-
+     <nav class="nav-links" aria-label="Navegación">
+<a href="#" id="nav-projects">Projects</a>
+<a href="#" id="nav-cv">CV</a>
       <div class="dropdown">
-        <button class="dropdown-btn" type="button">Languages ▾</button>
+        <button class="dropdown-btn" id="nav-language" type="button">Languages ▾</button>
+
         <div class="dropdown-menu">
           <button type="button" onclick="cambiarIdioma('en')">English</button>
           <button type="button" onclick="cambiarIdioma('es')">Español</button>
@@ -417,25 +556,26 @@
   </div>
 </header>
  
- 
-
                               <!-- ====== CONTENIDO PRINCIPAL ====== -->
     <main class="scroll-container">
-        <!-- SECCIÓN 1 -->
-       <section class="scroll-item">
+                                              <!-- SECCIÓN 1 -->
 
-            <div class="section">
-                <div class="text-content">
-                    <h1 id="intro-titulo">Hello, I'm Paz.</h1>
-<p id="intro-parrafo">I'm learning web development and I love creating websites that are accessible, clear and meaningful.</p>
-<a href="projects-en.html" class="pink-button" id="intro-boton">
-  Discover more
+<section class="scroll-item">
+<div  class="section">
+<div  class="text-content">
+<h1   id="intro-titulo">Hello, I'm Paz.  </h1>
+<p    id="intro-parrafo">I'm learning web development and I love creating websites that are accessible, clear and meaningful.</p>
+<a    href="projects-en.html" 
+      class="pink-button" 
+      id="intro-boton"> Discover more
 </a>
+</div>
+      
+<div  class="image-content">
+<img  src="https://i.postimg.cc/T3HyyRSV/9FF4616E-A33A-4D18-80FD-D19FC85ECB50.png"
+      alt="Imagen principal del portfolio de Paz">
+</div>
 
-                </div>
-                <div class="image-content">
-                    <img src="https://i.postimg.cc/SQ34ff2x/dawid-liberadzki-v-PFb-VB7-DPZI-unsplash.jpg" alt="Escritorio minimalista con laptop">
-                </div>
             </div>
         </section>
 
@@ -465,12 +605,16 @@
         <section class="scroll-item" id="contact">
             <div class="section">
                 <div class="text-content">
-                   <h1 id="contacto-titulo">Contact Me</h1>
-<p id="contacto-texto">Interested in working together? Feel free to reach out.
+               <h1 id="contacto-titulo">Contact me </h1>
+
+<p id="contacto-texto">
+  Interested in my professional profile? Take a look at my CV to learn more about my experience and background.
 </p>
- <a href="cv-en.html" class="pink-button" id="contacto-boton"> 
-  View CV & Contact
+
+<a href="cv-en.html" class="pink-button" id="contacto-boton">
+  View CV
 </a>
+    
 
                 </div>
                 <div class="image-content">
@@ -483,16 +627,14 @@
 
                                        <!-- ====== Foot ====== -->
     <footer>
-  <p id="pie-pagina">&copy; 2025 My Website</p>
   <div class="social-icons">
-    <a href="https://github.com/tu_usuario" target="_blank" aria-label="GitHub">
+    <a href="https://github.com/Paz8341" target="_blank" aria-label="GitHub">
+
       <i class="fab fa-github"></i>
     </a>
-    <a href="https://linkedin.com/in/tu_usuario" target="_blank" aria-label="LinkedIn">
+    <a href="https://www.linkedin.com/in/paz-castillo-268824127" target="_blank" aria-label="LinkedIn">
+
       <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="ruta-a-tu-cv.pdf" target="_blank" aria-label="Currículum">
-      <i class="fas fa-file-alt"></i>
     </a>
   </div>
 </footer>
