@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +75,19 @@
   align-items: center;
   width: 100%;
 }
+  }
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -185,6 +198,32 @@
   color:#218838;
 }
 
+  .dropdown-btn {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  line-height: 1,2;
+  cursor: pointer;
+}
+.lang-toggle {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #6b705c; /* elegante, no negro */
+  display: flex;
+  align-items: center;
+}
+.lang-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.3;
+}
+.lang-toggle:hover {
+  color:#218838;
+}
+
 
                          /* =======3 SCROLL / SECCIONES====== */
                          /* Ocultar barra de scroll (mantiene el scroll activo) */
@@ -239,6 +278,7 @@
     height: 510px;
     object-fit: cover;
     border-radius: 60px;
+    margin-top: 3rem; /* baja la imagen sin afectar al header */
     margin-top: 3rem; /* baja la imagen sin afectar al header */
   }
 
@@ -321,6 +361,7 @@
 
                          /* =====  6) FOOTER  ========= */
  
+ 
 
   .social-icons {
     margin-top: 10px;
@@ -330,7 +371,11 @@
     color:#edeff2 ;
     margin: 0 16px;
     font-size: 34px;
+    color:#edeff2 ;
+    margin: 0 16px;
+    font-size: 34px;
     transition: color 0.3s;
+    text-decoration: none;
     text-decoration: none;
   }
 
@@ -344,8 +389,48 @@
     display: none; /* (🌍) oculto por defecto en PC */
 }
 
+
+  .lang-toggle {
+    display: none; /* (🌍) oculto por defecto en PC */
+}
+
   @media (max-width: 768px) {
 
+/* ===== BOTÓN IDIOMA MÓVIL (🌍) ===== */
+
+/* Asegura que el grupo de acciones se vea */
+.mobile-actions {
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+/* Botón idioma: solo icono, visible y negro */
+.lang-toggle {
+  display: inline-flex;/* globo en modo movil*/
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  color: #000; /* mismo color que Paz */
+  padding: 6px;
+  cursor: pointer;
+}
+
+/* Tamaño real del icono */
+.lang-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+/* MENÚ MÓVIL ABIERTO: ocultar icono idioma (bolita) */
+header.open .lang-toggle {
+  display: none;
+}
 /* ===== BOTÓN IDIOMA MÓVIL (🌍) ===== */
 
 /* Asegura que el grupo de acciones se vea */
@@ -389,6 +474,13 @@ header.open .lang-toggle {
       margin-right: 0;
      } 
 
+    .nav-menu { 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      margin-left: 0; 
+      margin-right: 0;
+     } 
+
     .section {
       flex-direction: column;
       padding: 2rem 1rem;
@@ -425,6 +517,7 @@ header.open .lang-toggle {
     .scroll-item {
       padding: 2rem 1rem;
       
+      
     }
 
     .enfoque-section {
@@ -440,6 +533,68 @@ header.open .lang-toggle {
       width: 100%;
       padding: 2rem;
     }
+
+  /* MENÚ MÓVIL: ocultar botones verdes */
+    .nav-links {
+       display: none;
+}
+/* ===== MENÚ MÓVIL – LISTA MÍNIMA ===== */
+
+header.open .nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+header.open .nav-link {
+  background: none;
+  padding: 0;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #000;
+}
+
+header.open .nav-link:hover {
+  color: #218838;
+}
+
+/* MENÚ MÓVIL ABIERTO: ocultar Languages */
+.nav-links .dropdown {
+  display: none;
+}
+
+/* MENÚ MÓVIL ABIERTO: ocultar hamburguesa cuando el menú está abierto */
+header.open .nav-toggle {
+  display: none;
+
+  }
+  /* ===== MENÚ MÓVIL COMO LISTA (SIN BOTONES) ===== */
+
+header.open .nav-links {
+  display: flex;              /* muestra el menú */
+  flex-direction: column;     /* lista vertical */
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  gap: 1.2rem;
+}
+
+header.open .nav-link {
+  background: none;           /* quita verde */
+  border-radius: 0;
+  padding: 0;                 /* quita forma de botón */
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000;
+}
+
+header.open .nav-link:hover {
+  background: none;
+  color: #218838;
+}
+
 
   /* MENÚ MÓVIL: ocultar botones verdes */
     .nav-links {
@@ -537,14 +692,46 @@ header.open .nav-link:hover {
   <button class="nav-toggle" aria-label="Abrir menú">
     <span></span><span></span><span></span>
   </button>
+  <a class="logo" href="index.html">Paz</a>
 
+ <!-- ====== ACCIONES MÓVIL (derecha) ====== -->
+
+   <div class="mobile-actions">
+
+  <!-- Botón idioma (móvil) -->
+  <button class="lang-toggle" aria-label="Change language">
+  <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.3"/>
+  <path d="M4 12h16M12 3.5c3.5 3.8 3.5 13.2 0 17M12 3.5c-3.5 3.8-3.5 13.2 0 17"
+      stroke="currentColor" stroke-width="1.3" fill="none"/>
+  </svg>
+      </button>
+      
+<!-- DROPDOWN IDIOMAS · MÓVIL -->
+  <div class="dropdown mobile-dropdown">
+    <div class="dropdown-menu">
+      <button type="button" onclick="cambiarIdioma('en')">English</button>
+      <button type="button" onclick="cambiarIdioma('es')">Español</button>
+    </div>
+  </div>
+  <!-- Botón menú (hamburguesa) -->
+  <button class="nav-toggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+
+</div>
 </div>
 
 
      <nav class="nav-links" aria-label="Navegación">
 <a href="#" id="nav-projects">Projects</a>
 <a href="#" id="nav-cv">CV</a>
+     <nav class="nav-links" aria-label="Navegación">
+<a href="#" id="nav-projects">Projects</a>
+<a href="#" id="nav-cv">CV</a>
       <div class="dropdown">
+        <button class="dropdown-btn" id="nav-language" type="button">Languages ▾</button>
+
         <button class="dropdown-btn" id="nav-language" type="button">Languages ▾</button>
 
         <div class="dropdown-menu">
@@ -555,6 +742,7 @@ header.open .nav-link:hover {
     </nav>
   </div>
 </header>
+ 
  
                               <!-- ====== CONTENIDO PRINCIPAL ====== -->
     <main class="scroll-container">
@@ -568,7 +756,24 @@ header.open .nav-link:hover {
 <a    href="projects-en.html" 
       class="pink-button" 
       id="intro-boton"> Discover more
+                                              <!-- SECCIÓN 1 -->
+
+<section class="scroll-item">
+<div  class="section">
+<div  class="text-content">
+<h1   id="intro-titulo">Hello, I'm Paz.  </h1>
+<p    id="intro-parrafo">I'm learning web development and I love creating websites that are accessible, clear and meaningful.</p>
+<a    href="projects-en.html" 
+      class="pink-button" 
+      id="intro-boton"> Discover more
 </a>
+</div>
+      
+<div  class="image-content">
+<img  src="https://i.postimg.cc/T3HyyRSV/9FF4616E-A33A-4D18-80FD-D19FC85ECB50.png"
+      alt="Imagen principal del portfolio de Paz">
+</div>
+
 </div>
       
 <div  class="image-content">
@@ -609,11 +814,19 @@ header.open .nav-link:hover {
 
 <p id="contacto-texto">
   Interested in my professional profile? Take a look at my CV to learn more about my experience and background.
+               <h1 id="contacto-titulo">Contact me </h1>
+
+<p id="contacto-texto">
+  Interested in my professional profile? Take a look at my CV to learn more about my experience and background.
 </p>
 
 <a href="cv-en.html" class="pink-button" id="contacto-boton">
   View CV
+
+<a href="cv-en.html" class="pink-button" id="contacto-boton">
+  View CV
 </a>
+    
     
 
                 </div>
@@ -630,8 +843,12 @@ header.open .nav-link:hover {
   <div class="social-icons">
     <a href="https://github.com/Paz8341" target="_blank" aria-label="GitHub">
 
+    <a href="https://github.com/Paz8341" target="_blank" aria-label="GitHub">
+
       <i class="fab fa-github"></i>
     </a>
+    <a href="https://www.linkedin.com/in/paz-castillo-268824127" target="_blank" aria-label="LinkedIn">
+
     <a href="https://www.linkedin.com/in/paz-castillo-268824127" target="_blank" aria-label="LinkedIn">
 
       <i class="fab fa-linkedin"></i>
